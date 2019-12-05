@@ -1,3 +1,13 @@
+<<<<<<< HEAD
 <h1> Welcome <%= @user.first_name %></h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
+=======
+<h1> Welcome <%= @user.full_name %> - <%= @user.age %> - <%= @user.phone %></h1>
+<br />
+
+<h2>What would Jesus do ?</h2>
+<%= link_to 'View Appointments', user_appointments_path(@user) %>
+<%= link_to 'Edit yourself', edit_user_path(@user) %>
+<%= link_to 'Delete profile', @user, method: :delete %>
+>>>>>>> 6693689b14295c0ea62036dab9b59af01075c720

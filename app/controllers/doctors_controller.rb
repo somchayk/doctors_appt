@@ -18,7 +18,7 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      redirect_to @doctor
+      redirect_to doctors_path	
     else
       render :new
     end
@@ -26,7 +26,7 @@ class DoctorsController < ApplicationController
 
   def update
     if @doctor.update(doctor_params)
-      redirect_to @doctor
+      redirect_to doctors_path	
     else
       render :edit
     end
@@ -34,14 +34,17 @@ class DoctorsController < ApplicationController
 
   def destroy
     @doctor.destroy
-    redirect_to  
+    redirect_to doctors_path	
   end
   
   private
+  
   def doctor_params
     params.require(:doctor).permit(:name)
   end
+
   def set_doctor
     @doctor = Doctor.find(params[:id])
   end
+
 end

@@ -1,1 +1,26 @@
+<<<<<<< HEAD
 <h1>Edit My Profile</h1>
+=======
+<%= form_with(model: @user, local: true) do |f| %>
+  <div class="input-field">
+    <%= f.text_field :first_name, required: true, placeholder: "First Name" %>
+  </div>
+
+  <div class="input-field">
+    <%= f.text_field :last_name, required: true, placeholder: "Last Name "%>
+  </div>
+
+  <div class="input-field">
+    <%= f.text_field :age, required: false, placeholder: "Age"%>
+  </div>
+
+  <div class="input-field">
+    <%= f.text_field :phone, required: true, placeholder: "Phone"%>
+  </div>
+
+  <div class="input-field">
+    <%= f.text_field :email, required: false, placeholder: "Email"%>
+  </div>
+  <%= f.submit nil%>
+<% end %>
+>>>>>>> 6693689b14295c0ea62036dab9b59af01075c720

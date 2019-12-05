@@ -1,10 +1,9 @@
 class AppointmentsController < ApplicationController
-
   before_action :set_user
-  before_action :set_appointment, only [:show, :update, :edit, :destroy]
+  before_action :set_appointment, only: [:show, :update, :edit, :destroy]
 
   def index
-    @appointments = @user.appointments
+    @appointments = @user.appointments.all
   end
 
   def show
@@ -15,6 +14,8 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    # doctors
+    @doctors = Doctor.all
     @appointment = @user.appointments.new
     render partial: 'form'
   end
@@ -42,15 +43,17 @@ class AppointmentsController < ApplicationController
   end
 
   private
+
   def appointment_params
-    params.require(:appointment).permit(:user, :doctor, :time, :date)
+    params.require(:appointment).permit(:doctor_id, :time, :date)
   end
 
   def set_appointment
-    @appointment = Appointment.find(params[:id])
+    @appointment = @user.appointments.find(params[:id])
   end
 
   def set_user
     @user = User.find(params[:user_id])
   end
+
 end
