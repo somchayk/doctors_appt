@@ -1,2 +1,14 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<h1>Create Appointment</h1>
+<%= form_with(model: [@user, @appointment], local: true, class: 'ui form') do |f| %>
+  <%= f.label :doctor_id %>	
+  <%= f.select :doctor_id, @doctors.collect{  |d| [d.name, d.id]  } %>
+  <br />
+  <%= f.label :date %> ex: January 01, 2020)
+  <%= f.text_field :date, required: true, placeholder: "Month Day, Year" %>
+  <br />
+  <%= f.label :time %> ex: 00:00 (AM/PM)
+  <%= f.text_field :time, required: true, placeholder: "Hour:Minutes AM/PM" %>
+  <br />
+
+  <%= f.submit %>
+<% end %>

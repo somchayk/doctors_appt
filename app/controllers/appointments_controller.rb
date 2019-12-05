@@ -7,23 +7,23 @@ class AppointmentsController < ApplicationController
   end
 
   def show
+    @doctor = Doctor.find(@appointment.doctor_id)
   end
 
   def edit
-    render partial: 'form'
+    @doctors = Doctor.all
   end
 
   def new
     # doctors
     @doctors = Doctor.all
     @appointment = @user.appointments.new
-    render partial: 'form'
   end
 
   def create
     @appointment = @user.appointments.new(appointment_params)
     if @appointment.save
-      redirect_to[@user, @appointment]
+      redirect_to [@user, @appointment]
     else
       render :new
     end
