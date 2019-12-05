@@ -1,2 +1,7 @@
-<h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
+<h1>Appointment Information</h1>
+<h3>Doctor: <%= @doctor.name %></h3>
+<h3>Date: <%= @appointment.date %></h3>
+<h3>Time: <%= @appointment.time %></h3>
+<%= link_to "Back to #{@user.full_name.capitalize} Appointments", user_appointments_path(@user) %>
+<%= link_to 'Edit Appointment', edit_user_appointment_path(@user) %> 
+<%= link_to 'Delete Apppointment', [@user, @appointment], method: :delete %>
